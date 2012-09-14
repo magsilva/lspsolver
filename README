@@ -1,0 +1,2 @@
+Run ./library/lspsolver/build.sh to compile the cross-compile the library
+targetting Windows and Linux, 32 and 64 bits version.
