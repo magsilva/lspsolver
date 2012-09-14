@@ -67,7 +67,7 @@ public class Test {
 
                 int i = Integer.parseInt(t.nextToken());
                 int j = Integer.parseInt(t.nextToken());
-                float value = Float.parseFloat(t.nextToken());                
+                double value = Double.parseDouble(t.nextToken());                
 
                 solver.addToA(i, j, value);
             }
@@ -81,7 +81,7 @@ public class Test {
 
                 int i = Integer.parseInt(t.nextToken());
                 int j = Integer.parseInt(t.nextToken());
-                float value = Float.parseFloat(t.nextToken());
+                double value = Double.parseDouble(t.nextToken());
 
                 solver.addToB(i, j, value);
             }
@@ -93,7 +93,7 @@ public class Test {
             form.setMinimumFractionDigits(2);
             System.out.println(form.format(usedMemory) + " MB");
 
-            float[] result = solver.solve();
+            double[] result = solver.solve();
             
             usedMemory = (r.totalMemory() / 1024.0 / 1024.0) - (r.freeMemory() / 1024.0 / 1024.0);
             System.out.println(form.format(usedMemory) + " MB");

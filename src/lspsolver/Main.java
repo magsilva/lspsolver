@@ -48,23 +48,23 @@ public class Main {
 
             //creating matrix A
             solver.addToA(0, 0, 1);
-            solver.addToA(0, 1, -1.0f / 3.0f);
-            solver.addToA(0, 2, -1.0f / 3.0f);
-            solver.addToA(0, 3, -1.0f / 3.0f);
+            solver.addToA(0, 1, -1.0 / 3.0);
+            solver.addToA(0, 2, -1.0 / 3.0);
+            solver.addToA(0, 3, -1.0 / 3.0);
 
-            solver.addToA(1, 0, -1.0f / 3.0f);
+            solver.addToA(1, 0, -1.0 / 3.0);
             solver.addToA(1, 1, 1);
-            solver.addToA(1, 2, -1.0f / 3.0f);
-            solver.addToA(1, 3, -1.0f / 3.0f);
+            solver.addToA(1, 2, -1.0 / 3.0);
+            solver.addToA(1, 3, -1.0 / 3.0);
 
-            solver.addToA(2, 0, -1.0f / 3.0f);
-            solver.addToA(2, 1, -1.0f / 3.0f);
+            solver.addToA(2, 0, -1.0 / 3.0);
+            solver.addToA(2, 1, -1.0 / 3.0);
             solver.addToA(2, 2, 1);
-            solver.addToA(2, 3, -1.0f / 3.0f);
+            solver.addToA(2, 3, -1.0 / 3.0);
 
-            solver.addToA(3, 0, -1.0f / 3.0f);
-            solver.addToA(3, 1, -1.0f / 3.0f);
-            solver.addToA(3, 2, -1.0f / 3.0f);
+            solver.addToA(3, 0, -1.0 / 3.0);
+            solver.addToA(3, 1, -1.0 / 3.0);
+            solver.addToA(3, 2, -1.0 / 3.0);
             solver.addToA(3, 3, 1);
 
             solver.addToA(4, 0, 1);
@@ -81,7 +81,7 @@ public class Main {
             solver.addToB(6, 0, 2);
             solver.addToB(6, 1, 1);
 
-            float[] result = solver.solve();
+            double[] result = solver.solve();
 
             for (int i = 0; i < result.length; i += 2) {
                 System.out.println(result[i] + " " + result[i + 1]);
@@ -98,23 +98,23 @@ public class Main {
 
             //creating matrix A
             solver.addToA(0, 0, 1);
-            solver.addToA(0, 1, -1.0f / 3.0f);
-            solver.addToA(0, 2, -1.0f / 3.0f);
-            solver.addToA(0, 3, -1.0f / 3.0f);
+            solver.addToA(0, 1, -1.0 / 3.0);
+            solver.addToA(0, 2, -1.0 / 3.0);
+            solver.addToA(0, 3, -1.0 / 3.0);
 
-            solver.addToA(1, 0, -1.0f / 3.0f);
+            solver.addToA(1, 0, -1.0 / 3.0);
             solver.addToA(1, 1, 1);
-            solver.addToA(1, 2, -1.0f / 3.0f);
-            solver.addToA(1, 3, -1.0f / 3.0f);
+            solver.addToA(1, 2, -1.0 / 3.0);
+            solver.addToA(1, 3, -1.0 / 3.0);
 
-            solver.addToA(2, 0, -1.0f / 3.0f);
-            solver.addToA(2, 1, -1.0f / 3.0f);
+            solver.addToA(2, 0, -1.0 / 3.0);
+            solver.addToA(2, 1, -1.0 / 3.0);
             solver.addToA(2, 2, 1);
-            solver.addToA(2, 3, -1.0f / 3.0f);
+            solver.addToA(2, 3, -1.0 / 3.0);
 
-            solver.addToA(3, 0, -1.0f / 3.0f);
-            solver.addToA(3, 1, -1.0f / 3.0f);
-            solver.addToA(3, 2, -1.0f / 3.0f);
+            solver.addToA(3, 0, -1.0 / 3.0);
+            solver.addToA(3, 1, -1.0 / 3.0);
+            solver.addToA(3, 2, -1.0 / 3.0);
             solver.addToA(3, 3, 1);
 
             solver.addToA(4, 0, 1);
@@ -126,7 +126,7 @@ public class Main {
             solver.addToB(4, 1, 1);
             solver.addToB(4, 2, 1);
 
-            solver.addToB(5, 0, 1.5f);
+            solver.addToB(5, 0, 1.5);
             solver.addToB(5, 1, 2);
             solver.addToB(5, 2, 2);
 
@@ -134,7 +134,7 @@ public class Main {
             solver.addToB(6, 1, 1);
             solver.addToB(6, 2, 1);
 
-            float[] result = solver.solve();
+            double[] result = solver.solve();
             
             for (int i = 0; i < result.length; i += 3) {
                 System.out.println(result[i] + " " + result[i + 1] + " " + result[i + 2]);

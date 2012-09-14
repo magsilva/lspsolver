@@ -20,23 +20,23 @@ public class TestWeight {
 
             //creating matrix A
             solver.addToA(0, 0, 1);
-            solver.addToA(0, 1, -1.0f / 3.0f);
-            solver.addToA(0, 2, -1.0f / 3.0f);
-            solver.addToA(0, 3, -1.0f / 3.0f);
+            solver.addToA(0, 1, -1.0 / 3.0);
+            solver.addToA(0, 2, -1.0 / 3.0);
+            solver.addToA(0, 3, -1.0 / 3.0);
 
-            solver.addToA(1, 0, -1.0f / 3.0f);
+            solver.addToA(1, 0, -1.0 / 3.0);
             solver.addToA(1, 1, 1);
-            solver.addToA(1, 2, -1.0f / 3.0f);
-            solver.addToA(1, 3, -1.0f / 3.0f);
+            solver.addToA(1, 2, -1.0 / 3.0);
+            solver.addToA(1, 3, -1.0 / 3.0);
 
-            solver.addToA(2, 0, -1.0f / 3.0f);
-            solver.addToA(2, 1, -1.0f / 3.0f);
+            solver.addToA(2, 0, -1.0 / 3.0);
+            solver.addToA(2, 1, -1.0 / 3.0);
             solver.addToA(2, 2, 1);
-            solver.addToA(2, 3, -1.0f / 3.0f);
+            solver.addToA(2, 3, -1.0 / 3.0);
 
-            solver.addToA(3, 0, -1.0f / 3.0f);
-            solver.addToA(3, 1, -1.0f / 3.0f);
-            solver.addToA(3, 2, -1.0f / 3.0f);
+            solver.addToA(3, 0, -1.0 / 3.0);
+            solver.addToA(3, 1, -1.0 / 3.0);
+            solver.addToA(3, 2, -1.0 / 3.0);
             solver.addToA(3, 3, 1);
 
             solver.addToA(4, 0, 1);
@@ -47,13 +47,13 @@ public class TestWeight {
             solver.addToB(4, 0, 1);
             solver.addToB(4, 1, 1);
 
-            solver.addToB(5, 0, 1.5f);
+            solver.addToB(5, 0, 1.0);
             solver.addToB(5, 1, 2);
 
             solver.addToB(6, 0, 2);
             solver.addToB(6, 1, 1);
 
-            float[] result = solver.solve();
+            double[] result = solver.solve();
 
             for (int i = 0; i < result.length; i += 2) {
                 System.out.println(result[i] + " " + result[i + 1]);
@@ -69,26 +69,26 @@ public class TestWeight {
 
             //creating matrix A
             solver.addToA(0, 0, 1);
-            solver.addToA(0, 1, -1.0f / 3.0f);
-            solver.addToA(0, 2, -1.0f / 3.0f);
-            solver.addToA(0, 3, -1.0f / 3.0f);
+            solver.addToA(0, 1, -1.0 / 3.0);
+            solver.addToA(0, 2, -1.0 / 3.0);
+            solver.addToA(0, 3, -1.0 / 3.0);
 
-            solver.addToA(1, 0, -1.0f / 3.0f);
+            solver.addToA(1, 0, -1.0 / 3.0);
             solver.addToA(1, 1, 1);
-            solver.addToA(1, 2, -1.0f / 3.0f);
-            solver.addToA(1, 3, -1.0f / 3.0f);
+            solver.addToA(1, 2, -1.0 / 3.0);
+            solver.addToA(1, 3, -1.0 / 3.0);
 
-            solver.addToA(2, 0, -1.0f / 3.0f);
-            solver.addToA(2, 1, -1.0f / 3.0f);
+            solver.addToA(2, 0, -1.0 / 3.0);
+            solver.addToA(2, 1, -1.0 / 3.0);
             solver.addToA(2, 2, 1);
-            solver.addToA(2, 3, -1.0f / 3.0f);
+            solver.addToA(2, 3, -1.0 / 3.0);
 
-            solver.addToA(3, 0, -1.0f / 3.0f);
-            solver.addToA(3, 1, -1.0f / 3.0f);
-            solver.addToA(3, 2, -1.0f / 3.0f);
+            solver.addToA(3, 0, -1.0 / 3.0);
+            solver.addToA(3, 1, -1.0 / 3.0);
+            solver.addToA(3, 2, -1.0 / 3.0);
             solver.addToA(3, 3, 1);
 
-            float w = 20.0f;
+            double w = 20.0;
 
             solver.addToA(4, 0, w);
             solver.addToA(5, 1, w);
@@ -98,13 +98,13 @@ public class TestWeight {
             solver.addToB(4, 0, 1*w);
             solver.addToB(4, 1, 1*w);
 
-            solver.addToB(5, 0, 1.5f*w);
+            solver.addToB(5, 0, 1.0*w);
             solver.addToB(5, 1, 2*w);
 
             solver.addToB(6, 0, 2*w);
             solver.addToB(6, 1, 1*w);
 
-            float[] result = solver.solve();
+            double[] result = solver.solve();
 
             for (int i = 0; i < result.length; i += 2) {
                 System.out.println(result[i] + " " + result[i + 1]);

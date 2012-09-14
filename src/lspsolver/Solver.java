@@ -29,7 +29,6 @@
  * with LSP-Solver. If not, see <http://www.gnu.org/licenses/>.
  *
  * ***** END LICENSE BLOCK ***** */
-
 package lspsolver;
 
 import java.io.IOException;
@@ -52,14 +51,14 @@ public class Solver {
 
         this.indexes_a_lin = new ArrayList<Integer>();
         this.indexes_a_col = new ArrayList<Integer>();
-        this.values_a = new ArrayList<Float>();
+        this.values_a = new ArrayList<Double>();
 
         this.indexes_b_lin = new ArrayList<Integer>();
         this.indexes_b_col = new ArrayList<Integer>();
-        this.values_b = new ArrayList<Float>();
+        this.values_b = new ArrayList<Double>();
     }
 
-    public void addToA(int lin, int col, float value) throws IOException {
+    public void addToA(int lin, int col, double value) throws IOException {
         if (lin < this.nrlines && col < this.nrcol) {
             this.indexes_a_lin.add(lin);
             this.indexes_a_col.add(col);
@@ -69,7 +68,7 @@ public class Solver {
         }
     }
 
-    public void addToB(int lin, int col, float value) throws IOException {
+    public void addToB(int lin, int col, double value) throws IOException {
         if (lin < this.nrlines && col < 3) {
             this.indexes_b_lin.add(lin);
             this.indexes_b_col.add(col);
@@ -79,9 +78,9 @@ public class Solver {
         }
     }
 
-    public float[] solve() {
+    public double[] solve() {
         int[] indexes_a_aux = new int[this.indexes_a_lin.size() + this.indexes_a_col.size()];
-        float[] values_a_aux = new float[this.values_a.size()];
+        double[] values_a_aux = new double[this.values_a.size()];
 
         for (int i = 0; i < indexes_a_aux.length; i += 2) {
             indexes_a_aux[i] = this.indexes_a_lin.get(i / 2);
@@ -94,7 +93,7 @@ public class Solver {
         this.values_a = null;
 
         int[] indexes_b_aux = new int[this.indexes_b_lin.size() + this.indexes_b_col.size()];
-        float[] values_b_aux = new float[this.values_b.size()];
+        double[] values_b_aux = new double[this.values_b.size()];
 
         for (int i = 0; i < indexes_b_aux.length; i += 2) {
             indexes_b_aux[i] = this.indexes_b_lin.get(i / 2);
@@ -110,15 +109,14 @@ public class Solver {
                 values_b_aux, this.nrlines, this.nrcol);
     }
 
-    private native float[] solve(int[] index_a, float[] values_a,
-            int[] index_b, float[] values_b, int nrlines, int nrcol);
-
+    private native double[] solve(int[] index_a, double[] values_a,
+            int[] index_b, double[] values_b, int nrlines, int nrcol);
     private ArrayList<Integer> indexes_a_lin;
     private ArrayList<Integer> indexes_a_col;
-    private ArrayList<Float> values_a;
+    private ArrayList<Double> values_a;
     private ArrayList<Integer> indexes_b_lin;
     private ArrayList<Integer> indexes_b_col;
-    private ArrayList<Float> values_b;
+    private ArrayList<Double> values_b;
     private int nrlines;
     private int nrcol;
 }
