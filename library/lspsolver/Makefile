@@ -54,6 +54,8 @@ clean: .clean-pre .clean-impl .clean-post
 # Add your pre 'clean' code here...
 
 .clean-post:
+	-rm -rf build
+	-rm -rf dist
 # Add your post 'clean' code here...
 
 

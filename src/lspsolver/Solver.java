@@ -41,7 +41,6 @@ import java.util.ArrayList;
 public class Solver {
 
     static {
-
         System.loadLibrary("lspsolver");
     }
 
