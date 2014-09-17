@@ -31,8 +31,14 @@
  * ***** END LICENSE BLOCK ***** */
 package lspsolver;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import com.ironiacorp.computer.ComputerArchitecture;
+import com.ironiacorp.computer.ComputerArchitectureDetector;
+import com.ironiacorp.computer.ComputerSystem;
+import com.ironiacorp.computer.OperationalSystem;
 
 /**
  *
@@ -41,9 +47,31 @@ import java.util.ArrayList;
 public class Solver {
 
     static {
-        System.loadLibrary("lspsolver");
+    	OperationalSystem os = ComputerSystem.getCurrentOperationalSystem();
+    	ComputerArchitectureDetector cad = new ComputerArchitectureDetector();
+    	ComputerArchitecture ca = cad.detectCurrentArchitecture();
+    	File library = os.findLibrary("lspsolver");
+    	os.loadLibrary(library);
     }
 
+    private ArrayList<Integer> indexes_a_lin;
+
+    private ArrayList<Integer> indexes_a_col;
+    
+    private ArrayList<Double> values_a;
+    
+    private ArrayList<Integer> indexes_b_lin;
+    
+    private ArrayList<Integer> indexes_b_col;
+    
+    private ArrayList<Double> values_b;
+    
+    private int nrlines;
+    
+    private int nrcol;
+
+    private native double[] solve(int[] index_a, double[] values_a, int[] index_b, double[] values_b, int nrlines, int nrcol);
+    
     public Solver(int nrlines, int nrcol) {
         this.nrlines = nrlines;
         this.nrcol = nrcol;
@@ -104,18 +132,6 @@ public class Solver {
         this.indexes_b_col = null;
         this.values_b = null;
 
-        return this.solve(indexes_a_aux, values_a_aux, indexes_b_aux,
-                values_b_aux, this.nrlines, this.nrcol);
+        return solve(indexes_a_aux, values_a_aux, indexes_b_aux, values_b_aux, this.nrlines, this.nrcol);
     }
-
-    private native double[] solve(int[] index_a, double[] values_a,
-            int[] index_b, double[] values_b, int nrlines, int nrcol);
-    private ArrayList<Integer> indexes_a_lin;
-    private ArrayList<Integer> indexes_a_col;
-    private ArrayList<Double> values_a;
-    private ArrayList<Integer> indexes_b_lin;
-    private ArrayList<Integer> indexes_b_col;
-    private ArrayList<Double> values_b;
-    private int nrlines;
-    private int nrcol;
 }
